@@ -22,7 +22,7 @@ provider "aws" {
   version = "~> 2.0"
   region = "us-east-2"
   access_key = "ASYDD3ABRDVP34UaDSFX4"
-  access_secret = "FQhwfbErYFSFD3fdsDF67gpZXcUVycRYRTPHha"
+  secret_key = "FQhwfbErYFSFD3fdsDF67gpZXcUVycRYRTPHha"
 }
 
 provider "cloudflare" {
@@ -32,7 +32,7 @@ provider "cloudflare" {
 
 module "static-web-hosting" {
   source = "cjoy/s3-cloudflare-static-website/aws"
-  version = "0.1.1"
+  version = "0.1.2"
 
   bucket_name = "example-website-bucket"
   index_document = "index.html"
