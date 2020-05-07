@@ -60,7 +60,7 @@ resource "cloudflare_record" "acm" {
 /* 3. ACM Validation after adding DNS record */
 resource "aws_acm_certificate_validation" "cert" {
   provider = aws.virginia
-  depends_on = [cloudflare_record.acm, aws_acm_certificate.cert]
+  depends_on = [aws_acm_certificate.cert]
 
   certificate_arn = aws_acm_certificate.cert.arn
 }

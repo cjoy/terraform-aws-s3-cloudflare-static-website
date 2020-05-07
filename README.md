@@ -32,7 +32,6 @@ provider "cloudflare" {
 
 module "static-web-hosting" {
   source = "cjoy/s3-cloudflare-static-website/aws"
-  version = "0.1.2"
 
   bucket_name = "example-website-bucket"
   index_document = "index.html"
