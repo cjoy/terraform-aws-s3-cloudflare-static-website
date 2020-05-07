@@ -1,5 +1,5 @@
 # Static Website (S3, CloudFront & Cloudflare) 
-This terraform module provisions AWS & CloudFlare resources allowing you to deploy a static websites using S3 (static file storage), CloudFront (CDN) & CloudFlare (DNS Management).
+This terraform module provisions the appropriate AWS & CloudFlare resources allowing you to deploy a static website using S3 (static file storage), CloudFront (CDN) & CloudFlare (DNS Management).
 
 This module should be used inconjuction with your prefered continuous integration service (CircleCI, Github Actions etc). You can use this module to provision the required resources and should rely on your CI process to build and sync to S3. 
 
@@ -18,20 +18,25 @@ This module should be used inconjuction with your prefered continuous integratio
 
 ## Example Usage
 ```terraform
+provider "aws" {
+  version = "~> 2.0"
+  region = "us-east-2"
+  access_key = "ASYDD3ABRDVP34UaDSFX4"
+  secret = "FQhwfbErYFSFD3fdsDF67gpZXcUVycRYRTPHha"
+}
+
+provider "cloudflare" {
+  version   = "~> 2.0"
+  api_token = "C6Z1Da-yp9Cdshj0ymaHZvK0ujmWnEAELehi0KlL"
+}
+
 module "static-web-hosting" {
-    source = "cjoy/s3-cloudflare-static-website/aws"
-
-    bucket_name = "example-website-bucket"
-    index_document = "index.html"
-    error_document =  "error.html"
-    domain_name = "example.com"
-
-    aws_access_key = "ASYDD3ABRDVP34UaDSFX4"
-    aws_secret = "FQhwfbErYFSFD3fdsDF67gpZXcUVycRYRTPHha"
-    aws_region = "us-east-2"
-
-    cloudflare_token = "C6Z1Da-yp9Cdshj0ymaHZvK0ujmWnEAELehi0KlL"
-    cloudflare_zone_id = "4ab79b65343sdf44dca2943d2345d9dbf0d"
+  source = "cjoy/s3-cloudflare-static-website/aws"
+  bucket_name = "example-website-bucket"
+  index_document = "index.html"
+  error_document =  "error.html"
+  domain_name = "example.com"
+  cloudflare_zone_id = "4ab79b65343sdf44dca2943d2345d9dbf0d"
 } 
 ```
 
