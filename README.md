@@ -49,10 +49,6 @@ module "static-web-hosting" {
 | **error_document** | `string` | This corresponds to the default error document. (Defaults to error.html) |
 | **domain_name** | `string` | This is the domain name you want to use to point your website. (eg. example.com, www.example.com etc) |
 | **tags** | `map(string)` | Tags you would like to apply across AWS resources |
-| **aws_access_key** | `string` | This is the AWS access key. You can retrieve this by creating a new IAM user, with programmatic access. |
-| **aws_secret** | `string` | This is the AWS secret key. You can retrieve this by creating a new IAM user, with programmatic access. |
-| **aws_region** | `string` | This corresponds to the AWS region you want to host your S3 bucket. Eg. us-east-1, us-east-2, us-west-1, us-west-2 ... (Defaults to us-east-2) |
-| **cloudflare_token** | `string` | This is your Cloudflare token. You can generate in the cloudflare dashboard, under your profile settings. |
 | **cloudflare_zone_id** | `string` | The DNS zone ID in which add the record. You can get this from the domain view in the cloudflare dashboard. |
 
 
