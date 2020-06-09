@@ -70,7 +70,7 @@ resource "aws_cloudfront_distribution" "dist" {
   depends_on = [aws_s3_bucket.bucket, aws_acm_certificate_validation.cert]
 
   origin {
-    domain_name = aws_s3_bucket.bucket.website_domain
+    domain_name = aws_s3_bucket.bucket.website_endpoint
     origin_id   = "S3-${var.bucket_name}"
   }
 
